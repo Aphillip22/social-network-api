@@ -47,5 +47,5 @@
   ![image](https://user-images.githubusercontent.com/87291933/143736085-646d7961-3d2f-418a-a0b2-dbae2ba0ad68.png)
   ![image](https://user-images.githubusercontent.com/87291933/143736095-73b76657-8586-4135-9e09-0a831dc12398.png)
   # Links
-  Walkthrough: https://drive.google.com/file/d/16Dd9HTRJvpVXqb1llupLLsa8hHhTAszj/view?usp=sharing
+  Walkthrough: https://drive.google.com/file/d/16Dd9HTRJvpVXqb1llupLLsa8hHhTAszj/view?usp=sharing  
   Github Repo: https://github.com/Aphillip22/social-network-api.git
