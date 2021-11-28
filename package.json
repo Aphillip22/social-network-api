@@ -19,6 +19,6 @@
   "homepage": "https://github.com/Aphillip22/social-network-api#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.0.13"
+    "mongoose": "^5.13.13"
   }
 }
