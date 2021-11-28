@@ -2,12 +2,18 @@ const { Schema, model, Types } = require('mongoose');
 const Thought = require('./Thought');
 
 const UserSchema = new Schema({
-    username: {
-      type: String
-    },
-    email: {
-      type: String
-    },
+  username: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    match: [/.+@.+\..+/, 'Must match an email address'],
+  },
     thoughts: [{
       type: Schema.Types.ObjectId,
       ref: 'Thought'
@@ -29,8 +35,13 @@ const UserSchema = new Schema({
 UserSchema.virtual('friendCount').get(function() {
   return this.friends.length;
 });
-UserSchema.virtual('thoughtCount').get(function() {
-  return this.thoughts.reduce((total, thought) => total + thought.reactions.length + 1, 0);
+
+//Bonus - reviewed github repo at https://github.com/njthanhtrang/18.-NoSQL-Challenge-Social-Network-API/blob/main/models/User.js
+UserSchema.pre("findOneAndDelete", { document: false, query: true }, async function() {
+  console.log("User pre-delete");
+  const doc = await this.model.findOne(this.getFilter());
+  console.log(doc.username);
+  await Thought.deleteMany({ username: doc.username });
 });
 
   // create the User model using the UserSchema

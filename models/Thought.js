@@ -8,12 +8,12 @@ const ReactionSchema = new Schema({
   },
   reactionBody: {
     type: String,
-    required: true,
-
+    required: "Please enter your reaction",
+    maxLength: 280
   },
   username: {
     type: String,
-    required: true,
+    required: "Please enter your username"
   },
   createdAt: {
       type: Date,
@@ -25,7 +25,9 @@ const ReactionSchema = new Schema({
 const ThoughtSchema = new Schema({
     thoughtText: {
       type: String,
-      require: true
+      require: 'Please enter a thought',
+      minLength: 1,
+      maxLength: 280
     },
     createdAt: {
         type: Date,
@@ -34,7 +36,7 @@ const ThoughtSchema = new Schema({
       },
     username: {
       type: String,
-      require: true
+      require: 'Please enter your username'
     },
     reactions: [ReactionSchema]
   },
