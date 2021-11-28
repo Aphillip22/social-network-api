@@ -7,7 +7,8 @@ const {
     updateThought, 
     removeThought, 
     addReaction, 
-    removeReaction } = require("../../controllers/thought-controller");
+    removeReaction,
+} = require("../../controllers/thought-controller");
 
 //set GET and POST routes for all thoughts and add thought to /api/thoughts/
 router
