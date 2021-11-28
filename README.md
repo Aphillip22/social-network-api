@@ -1,4 +1,4 @@
-# Note Taker
+# Social Network API
   -[Description](#description)  
   -[Installation](#installation)  
   -[Usage](#usage)  
@@ -42,5 +42,5 @@
   # Images
   
   # Links
-  Walkthrough:   
+  Walkthrough: https://drive.google.com/file/d/16Dd9HTRJvpVXqb1llupLLsa8hHhTAszj/view?usp=sharing
   Github Repo: https://github.com/Aphillip22/social-network-api.git
