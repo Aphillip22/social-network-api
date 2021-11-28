@@ -4,15 +4,15 @@ const userController = {
     // get all users
     getAllUser(req, res) {
       User.find({})
-      .populate(
-        {
-        path: 'thoughts',
-        select: '-__v'
-        },
-        {
-        path: 'friends',
-        select: '-__v'
-        })
+      // .populate(
+      //   {
+      //   path: 'thoughts',
+      //   select: '-__v'
+      //   },
+      //   {
+      //   path: 'friends',
+      //   select: '-__v'
+      //   })
         .select('-__v')
         .then(dbUserData => res.json(dbUserData))
         .catch(err => {
@@ -79,7 +79,17 @@ const userController = {
         res.json(dbUserData);
       })
       .catch(err => res.status(400).json(err));
-    }
+    },
+    // remove thought
+  removeThought({ params }, res) {
+  User.findOneAndUpdate(
+    { _id: params.userId },
+    { $pull: { thoughts: { thoughtId: params.thoughtId } } },
+    { new: true }
+  )
+    .then(dbUserData => res.json(dbUserData))
+    .catch(err => res.json(err));
+}
   }
 
 module.exports = userController;
