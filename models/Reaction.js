@@ -3,7 +3,7 @@ const { Schema, model, isValidObjectId } = require('mongoose');
 const reactionSchema = new Schema({
     reactionId: {
       type: Schema.Types.ObjectId,
-      default: new isValidObjectId
+      default: new ObjectId
     },
     reactionBody: {
       type: String,
@@ -16,7 +16,8 @@ const reactionSchema = new Schema({
     },
     createdAt: {
         type: Date,
-        default: Date.now
+        default: Date.now,
+        get: (createdAtVal) => dateFormat(createdAtVal)
       }
   });
 
