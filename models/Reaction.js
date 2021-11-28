@@ -2,7 +2,7 @@ const { Schema, model, isValidObjectId } = require('mongoose');
 
 const reactionSchema = new Schema({
     reactionId: {
-      type: Object,
+      type: Schema.Types.ObjectId,
       default: new isValidObjectId
     },
     reactionBody: {
@@ -19,3 +19,5 @@ const reactionSchema = new Schema({
         default: Date.now
       }
   });
+
+  module.exports = reactionSchema;
